@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics</title>
+  </head>
+  <body>
+    <div class="js-container">
+    </div>
+    <div class="js-container2">
+    </div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <!-- // this has all the basic features of react
+    // react is and external library that helps ur to create webpages easier -->
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <!-- // this is js dom which is specifically used to create webpages
+    // react native is used to create mobile apps -->
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script src="https://www.unpkg.com/supersimpledev@8.5.0/external-library.js"></script>
+    <script type="text/babel">
+    //  this is used to convert jsx to js
+      const realtive = (
+        <div>
+          <button>Hello</button>
+          <p>None</p>
+        </div>
+        // this is html code inside js and hence it is called as jsx
+      )
+      const value = 16 +10;
+      const shippppingCost = 5;
+      const productCost =(
+        <div>
+         <p>Product cost: $  {value}</p>
+         <p>Shipping Cost: $ {shippppingCost}</p> 
+         <p>Total cost: $ {shippppingCost+value}</p>
+        </div>)
+      
+      const container = document.querySelector('.js-container2');
+      ReactDOM.createRoot(container).render(productCost); 
+
+    </script>
+  </body>
+</html>
