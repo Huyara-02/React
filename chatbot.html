@@ -5,7 +5,7 @@
   </head>
   <body>
     <div class="js-container"></div>
-
+    <!-- a div is basically used to store all the values returned by component. -->
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
 
@@ -13,18 +13,68 @@
     <script src="https://www.unpkg.com/supersimpledev@8.5.0/external-library.js"></script>
     <script type="text/babel">
       function ChatInput(){
+        {/* this is how we define a component
+          this component helps us to create the input and button */  
+        }
         return (
-          <div>
-            <input></input>
+          <>
+          {/* this <> is called as a fragment when we want to return multiple elements but do not want to put a div inside hence we use a fragment*/}
+          {/* here instead of using div we can use fragment to group multiple elements together*/}
+            <input 
+              placeholder = "Send a message to chatbot" 
+              size = "30">
+            </input>
             <button>Send</button>
-          </div>
+          </>
         )
       }
-      const div =(
+      function ChatMessage({message, Sender}){
+        //destructing only works when the variable name is same as the property name eg
+        // const message = prop.message; here the varible name is same as the property name
+        // this is known as destructuring, it is a way to extract values from an object and assign them to variables. The value inside message attribute is assigned to message variable and the value inside Sender attribute is assigned to Sender variable.
+        {/* this is how we define a component
+          this component helps us to create the input and button */}
+        {/* this is how we define a component
+          this component helps us to create the input and button */}
+        //const {message, Sender} = prop; -- shortcut
+        {/* This is a shortcut to put the props into a particualr variable*/}
+        {/* this component is helping us to create all the other message components*/}
+        {/* prop = {
+          message : "hey chatbot", object(prop) key(message):value("hey chatbot")
+          watch : "Can you get me the weather report"
+        }*/}
+        {/* props shortform for properties, they can be simply assumed as parameters to a function, just like giving parameter, props behave the same with an component, the value of props can vary similar to parameter*/}
+        // const inputs = prop.message;
+        // const sendermessage = prop.Sender;
+        {/* here prop is just a variable which  is treated as an object which stores all the props (properties)in key value fashion and hence it makes the code more orgranzied*/}
+
+        return(
+          <div>
+            // this is called as a guard operator, here the value to right is displyed if the value to the left is true.
+          {Sender === "Robot" && (<img src = "robot.png" width = "50"/>)}
+          {message}
+          {Sender === "user" && <img src ="https://supersimple.dev/projects/chatbot/user.png"width = "50"/>}
+          </div>
+        );
+      };
+
+      function App(){
+        return(
+          <>
           <ChatInput />
-      );
+          <ChatMessage message = "Hey ChatBot" user = "sender"/> {/* this is how we pass the value to the props */}
+          <ChatMessage message = "How can I help you" Sender = "Robot" />
+          <ChatMessage message = "Can you get me today date" Sender = "user"/>
+          <ChatMessage message = "Today is April 6" Sender = "Robot" />
+          <ChatMessage message = "Can you get me the weather report" Sender = "user"/>
+        </>
+        );
+      };
+
       const container = document.querySelector('.js-container');
-      ReactDOM.createRoot(container).render(div);
+      ReactDOM.createRoot(container).render(<App />);
+      // here App is treated as an html element and is passed to the render function.
+
     </script>
   </body>
 </html>
