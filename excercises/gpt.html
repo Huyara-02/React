@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>React Counter</title>
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+</head>
+<body>
+  <div class="js-container"></div>
+
+  <script type="text/babel">
+    function Counter() {
+      const [count, setCount] = React.useState(0); // Using state
+
+      return (
+        <>
+          <h2>Counter: {count}</h2>
+          <button onClick={() => setCount(count + 1)}>Increase</button>
+          <button onClick={() => setCount(count - 1)}>Decrease</button>
+          <button onClick={() => setCount(0)}>Reset</button>
+        </>
+      );
+    }
+
+    function App() {
+      return (
+        <>
+          <h1>Simple Counter App</h1>
+          <Counter />
+        </>
+      );
+    }
+
+    const container = document.querySelector('.js-container');
+    ReactDOM.createRoot(container).render(<App />);
+  </script>
+</body>
+</html>

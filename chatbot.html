@@ -50,7 +50,7 @@
 
         return(
           <div>
-            // this is called as a guard operator, here the value to right is displyed if the value to the left is true.
+            {/* this is called as a guard operator, here the value to right is displyed if the value to the left is true.*/}
           {Sender === "Robot" && (<img src = "robot.png" width = "50"/>)}
           {message}
           {Sender === "user" && <img src ="https://supersimple.dev/projects/chatbot/user.png"width = "50"/>}
@@ -70,9 +70,14 @@
         </>
         );
       };
+      function ReturnApp(){
+        return(
+          <App />
+        )
+      }
 
       const container = document.querySelector('.js-container');
-      ReactDOM.createRoot(container).render(<App />);
+      ReactDOM.createRoot(container).render(<ReturnApp />);
       // here App is treated as an html element and is passed to the render function.
 
     </script>

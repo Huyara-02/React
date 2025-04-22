@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+</head>
+<body>
+  <div class="js-container">
+
+  </div>
+  <script type="text/babel">
+    function Display(){
+      {/* making a component named as Display and taking output as a pargraph and a button */}
+      return(
+        <div>
+        <p>Welcome to my website</p>
+        <button>Click here to get started</button>
+        <div>
+        <input placeholder = "Enter Your Email ID here" type = "Email"/>
+        <input placeholder = "Enter Your Password here" type = "Password"/>
+        </div>
+        </div>
+      );
+    };
+
+    function Header(){
+      return(
+        <>
+        <Display/>
+        </>
+      );
+    };
+    const container = document.querySelector('.js-container');
+    ReactDOM.createRoot(container).render(<Display/>);
+  </script>
+</body>
+
+</html>
